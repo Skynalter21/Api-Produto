@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +17,7 @@ public class Produto implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -22,7 +25,22 @@ public class Produto implements Serializable {
 	private int valor;
 	private int estoque;
 
+	@ManyToOne
+	@JoinColumn(name = "id_cidade", referencedColumnName = "id")
+	private Cidade cidade;
 	
+
+    
+    
+	
+
+	public Cidade getCidade() {
+		return cidade;
+	}
+
+	public void setCidade(Cidade cidade) {
+		this.cidade = cidade;
+	}
 
 	public Long getId() {
 		return id;

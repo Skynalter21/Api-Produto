@@ -21,6 +21,8 @@ public class ProdutoControlador {
 
 	@Autowired
 	ProdutoRepositorio produtoRepositorio;
+	
+	
 
 	@CrossOrigin
 	@GetMapping("/produtos")
@@ -43,6 +45,7 @@ public class ProdutoControlador {
 	@CrossOrigin
 	@PostMapping("/produto")
 	public Produto salvaProduto(@RequestBody Produto produto) {
+		System.out.println("Mein cid" + produto.getCidade().getId());
 		return produtoRepositorio.save(produto);
 	}
 	
